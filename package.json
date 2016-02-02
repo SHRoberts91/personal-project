@@ -1,0 +1,31 @@
+{
+  "name": "personal-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./server/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SHRoberts91/personal-project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SHRoberts91/personal-project/issues"
+  },
+  "homepage": "https://github.com/SHRoberts91/personal-project#readme",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.14.2",
+    "cors": "^2.7.1",
+    "express": "^4.13.4",
+    "express-session": "^1.13.0",
+    "mongoose": "^4.3.7",
+    "passport": "^0.3.2",
+    "passport-facebook": "^2.1.0",
+    "passport-google": "^0.3.0",
+    "passport-local": "^1.0.0"
+  }
+}
