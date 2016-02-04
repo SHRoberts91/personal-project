@@ -1,7 +1,6 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html ng-app="iDocsApp">
   <head>
-    <!-- <link rel="stylesheet" type="text/css" href="/fullPage/jquery.fullPage.css"/> -->
     <link rel="stylesheet" href="/styles/style.css" charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <title>iDocs</title>
@@ -10,24 +9,75 @@
     <div ui-view></div>
 
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.js"></script>
-    <!--<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>-->
     <script src="https://code.angularjs.org/1.5.0-rc.2/angular.js"></script>
     <script src="https://code.angularjs.org/1.5.0-rc.2/angular-animate.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
-    <!--main-->
+    main
     <script src="./js/iDocsApp.js"></script>
     <script src="./js/controllers/iDocsCtrl.js"></script>
     <script src="./js/services/iDocsService.js"></script>
-    <!--routes-->
+    routes
     <script src="./routes/homeCtrl.js"></script>
     <script src="./routes/meetingsCtrl.js"></script>
     <script src="./routes/guestHomeCtrl.js"></script>
     <script src="./routes/accountsCtrl.js"></script>
-    <!--directives-->
-    <!--<script src="/Directives/intro/introDirective.js"></script>
-    <script src="/Directives/thoughtsDirective/thoughtsDirective.js"></script>
-    <script src="/Directives/topMenu/topMenuDirective.js"></script>
-    <script src="/Directives/fadeTextDirective/fadeTextDirective.js"></script>
-    <script src="/Directives/callMeDirective/callMeDirective.js"></script>-->
+    directives
+  </body>
+</html>-->
+
+
+<!DOCTYPE html>
+<html ng-app="iDocsApp">
+  <head>
+    <title>iDocs</title>
+    <link rel="stylesheet" href="/styles/style.css" charset="utf-8">
+    <link rel="stylesheet" href="https://rawgit.com/angular/bower-material/master/angular-material.min.css"/>
+    <!--<link rel="stylesheet" href="https://rawgit.com/angular/material-start/es5-tutorial/app/assets/app.css"/>-->
+
+  </head>
+  <body ng-cloak layout="column" ng-controller="iDocsCtrl as ul">
+      <ui-view></ui-view>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-rc.2/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-rc.2/angular-animate.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-rc.2/angular-aria.js"></script>
+    <script src="https://rawgit.com/angular/bower-material/master/angular-material.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.17/angular-ui-router.js"></script>
+    <script src="./js/iDocsApp.js"></script>
+    <script src="./js/controllers/iDocsCtrl.js"></script>
   </body>
 </html>
+
+
+      <!--<md-toolbar layout="row">    
+        <md-button class="menu" hide-gt-sm ng-click="ul.toggleList()" aria-label="Show Account List">
+            <md-icon md-svg-icon="menu"  ></md-icon>
+        </md-button>      
+        <h3>Accounts</h3>
+    </md-toolbar>
+
+    <div class="container" layout="row" flex>
+        <md-sidenav 
+          ng-click="ul.toggleList()" 
+          md-component-id="left"
+          md-is-locked-open="$mdMedia('gt-sm')" 
+          class="md-whiteframe-4dp" >
+          
+          <md-list>
+            <md-list-item ng-repeat="u in ul.accounts">
+                <md-button ng-click="ul.selectAccount(u)" ng-class="{'selected' : u === ul.selected }">
+                  {{u.name}}
+                </md-button>
+            </md-list-item>
+          </md-list>
+        </md-sidenav>
+
+        <md-content flex id="content">
+          <h2>{{ul.selected.name}}</h2>
+          <p>{{ul.selected.content}}</p>
+
+          <md-button class="share" md-no-ink ng-click="ul.makeContact(ul.selected)" aria-label="Share with {{ ul.selected.name }}">
+            <md-icon md-svg-icon="share"></md-icon>
+          </md-button>
+        </md-content>
+    </div>-->

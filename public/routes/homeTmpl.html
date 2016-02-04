@@ -1,0 +1,33 @@
+      <md-toolbar layout="row">    
+        <md-button class="menu" hide-gt-sm ng-click="ul.toggleList()" aria-label="Show Account List">
+            <md-icon md-svg-icon="menu"  ></md-icon>
+        </md-button>      
+        <h3>Accounts</h3>
+    </md-toolbar>
+
+    <div class="container" layout="row" flex>
+        <md-sidenav 
+          ng-click="ul.toggleList()" 
+          md-component-id="left"
+          md-is-locked-open="$mdMedia('gt-sm')" 
+          class="md-whiteframe-4dp" >
+          
+          <md-list>
+            <md-list-item ng-repeat="u in ul.accounts">
+                <md-button ng-click="ul.selectAccount(u)" ng-class="{'selected' : u === ul.selected }">
+                  {{u.name}}
+                </md-button>
+            </md-list-item>
+          </md-list>
+        </md-sidenav>
+
+        <md-content flex id="content">
+          <h2>{{ul.selected.name}}</h2>
+          <p>{{ul.selected.content}}</p>
+
+          <md-button class="share" md-no-ink ng-click="ul.makeContact(ul.selected)" aria-label="Share with {{ ul.selected.name }}">
+            <md-icon md-svg-icon="share"></md-icon>
+          </md-button>
+        </md-content>
+    </div>
+
