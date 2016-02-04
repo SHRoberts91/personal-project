@@ -7,7 +7,7 @@ module.exports = {
             if (err) {
                 return res.status(500).json(err);
             }
-            return res.status(200).json(saved);
+            return res.status(200).json(result);
         });
     },
     read: function(req, res) {

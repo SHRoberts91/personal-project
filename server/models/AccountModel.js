@@ -5,7 +5,7 @@ var Mongoose = require('mongoose'),
     DirectorSchema = ('./DirectorSchema');
 
 var Account = new Schema({
-    companyName: {type: string, required: true, unique: true},
+    companyName: {type: String, required: true, unique: true},
     directors: [DirectorSchema],
-    companyAddress: {type: string, required: true},    
+    companyAddress: {type: String, required: true},    
 })

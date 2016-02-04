@@ -3,8 +3,6 @@ var express = require('express'),
    session = require('express-session'),
    cors = require('cors'),
    mongoose = require('mongoose'),
-   passport = require('passport'),
-   LocalStrategy = require('passport-local'),
    GoogleStrategy = require('passport-google').Strategy,
    FacebookStrategy = require('passport-facebook').Strategy;
 //Models
@@ -63,7 +61,7 @@ app.delete('/meeting/:id', meetingCtrl.delete);
 
 
 //can now look at site from db
-var mongoUri = 'mongodb://localhost:27017/attourneyHelper'
+var mongoUri = 'mongodb://localhost:27017/iDocs'
 mongoose.connect(mongoUri);
 
 var db = mongoose.connection;

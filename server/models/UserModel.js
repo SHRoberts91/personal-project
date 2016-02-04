@@ -1,14 +1,15 @@
-var Mongoose = require('mongoose'),
-    Schema = Mongoose.Schema,
+var mongoose = require('mongoose'),
+    Schema = mongoose.Schema,
     bcrypt = require('bcrypt-nodejs'),
-    objectId = Mongoose.Schema.Types.ObjectId;
+    objectId = mongoose.Schema.Types.ObjectId;
         
 
-var User = new Schema({
-    userName: { type: string, required: true, unique: true },
-    password: { type: string, required: true },
-    accounts: [{type: objectId, ref: 'Account'}],  //array of Account models 
+var User = Schema({
+    userName: { type: String, required: true, unique: true },
+    password: { type: String, required: true },
+    // accounts: [{type: objectId, ref: 'Account'}],  //array of Account models 
 })
 
+module.exports = mongoose.model('User', User)
 //security 
 

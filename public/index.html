@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="iDocsApp">
+  <head>
+    <!-- <link rel="stylesheet" type="text/css" href="/fullPage/jquery.fullPage.css"/> -->
+    <link rel="stylesheet" href="/styles/style.css" charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <title>iDocs</title>
+  </head>
+  <body ng-controller="iDocsCtrl">
+    <div ui-view></div>
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.js"></script>
+    <!--<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>-->
+    <script src="https://code.angularjs.org/1.5.0-rc.2/angular.js"></script>
+    <script src="https://code.angularjs.org/1.5.0-rc.2/angular-animate.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
+    <!--main-->
+    <script src="./js/iDocsApp.js"></script>
+    <script src="./js/controllers/iDocsCtrl.js"></script>
+    <script src="./js/services/iDocsService.js"></script>
+    <!--routes-->
+    <script src="./routes/homeCtrl.js"></script>
+    <script src="./routes/meetingsCtrl.js"></script>
+    <script src="./routes/guestHomeCtrl.js"></script>
+    <script src="./routes/accountsCtrl.js"></script>
+    <!--directives-->
+    <!--<script src="/Directives/intro/introDirective.js"></script>
+    <script src="/Directives/thoughtsDirective/thoughtsDirective.js"></script>
+    <script src="/Directives/topMenu/topMenuDirective.js"></script>
+    <script src="/Directives/fadeTextDirective/fadeTextDirective.js"></script>
+    <script src="/Directives/callMeDirective/callMeDirective.js"></script>-->
+  </body>
+</html>
