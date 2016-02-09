@@ -2,21 +2,23 @@ var Account = require('../models/AccountModel');
 
 module.exports = {
     create: function(req, res) {
-        var newAccount = new (req.body);
-        newAccount.save(function(err, result) {
+        Account.create(req.body, function(err, result) {
             if (err) {
-                return res.status(500).json(err);
+                console.log(err);
+                return res.status(500).send(err);
             }
-            return res.status(200).json(saved);
+            console.log(result);
+            return res.status(200).send(result);
         });
     },
     read: function(req, res) {
         Account
-        .find({})
+        .find(req.query)
         .exec(function(err,result) {
             if (err) {
                 return res.status(500).json(err);
             }
+            console.log(result)
             res.json(result);
         });
     },

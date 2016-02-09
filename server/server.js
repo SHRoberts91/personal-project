@@ -5,6 +5,7 @@ var express = require('express'),
    mongoose = require('mongoose'),
    GoogleStrategy = require('passport-google').Strategy,
    FacebookStrategy = require('passport-facebook').Strategy;
+
 //Models
 var User = require('./models/UserModel'),  
     Account = require('./models/AccountModel'),
@@ -13,6 +14,7 @@ var User = require('./models/UserModel'),
 var userCtrl = require('./controllers/userCtrl'),  
     accountCtrl = require('./controllers/accountCtrl'),
     meetingCtrl = require('./controllers/meetingCtrl');
+
    
    
 //end point protection
@@ -26,7 +28,7 @@ var isAuthenticated = function (req, res, next) {
    
 var app = express();
 app.use(bodyParser.json());
-app.use(express.static(__dirname + 'guestHome'));
+// app.use(express.static(__dirname + 'guestHome'));
 // app.use(bodyParser.urlencoded({extended: false}));
 app.use(cors());
 app.use(session({
@@ -40,6 +42,10 @@ app.use(session({
 //endpoints
 
 app.post('/register', userCtrl.register);
+app.get('/user', userCtrl.read);
+app.get('/me', userCtrl.me);
+app.get('/user/read/:id', userCtrl.readUser);
+app.put('/user/:id', userCtrl.update);
 // app.post('/login', function(req, res, next){
 //     //login
 // })
@@ -61,7 +67,7 @@ app.delete('/meeting/:id', meetingCtrl.delete);
 
 
 //can now look at site from db
-var mongoUri = 'mongodb://localhost:27017/iDocs'
+var mongoUri = 'mongodb://localhost:27017/attourneyHelper'
 mongoose.connect(mongoUri);
 
 var db = mongoose.connection;
@@ -70,7 +76,7 @@ db.once('open', function () {
     console.log('Mongo connected at', mongoUri);
 })
 
-var portNum = 7777;
+var portNum = 8887;
 app.listen(portNum, function(){
     console.log('listening on', portNum);
 })
