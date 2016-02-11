@@ -1,54 +1,41 @@
-<!--<md-toolbar layout="row">
+<md-toolbar layout="row">    
     <md-button class="menu" hide-gt-sm ng-click="al.toggleList()" aria-label="Show Account List">
-        List
-    </button>
+        <!--<md-icon md-svg-icon="menu" ></md-icon>-->
+        list
+    </md-button>      
     <h3>Accounts</h3>
 </md-toolbar>
-<div class="container" layout="row" flex>
-    <md-sidenav
-    ng-click="al.toggleList()"
-    md-component-id="left"
-    md-is-locked-open="$mdMedia('gt-sm')"
-    class="md-whiteframe-4dp">
-        <md-list>
-            <mid-list-item ng-repeat="u in al.accounts">
-                <md-button ng-clickk="al.selectAccount(u)"></md-button>
-            </mid-list-item>
-        </md-list>
-    </md-sidenav>
-</div>-->
-    <md-toolbar layout="row">    
-        <md-button class="menu" hide-gt-sm ng-click="al.toggleList()" aria-label="Show Account List">
-            <!--<md-icon md-svg-icon="menu" ></md-icon>-->
-            list
-        </md-button>      
-        <h3>Accounts</h3>
-    </md-toolbar>
 
-    <div class="container" layout="row" flex>
-        <md-sidenav 
-          ng-click="al.toggleList()" 
-          md-component-id="left"
-          md-is-locked-open="$mdMedia('gt-sm')" 
-          class="md-whiteframe-4dp" >
-          <md-list>
+<div class="container" layout="row" flex>
+    <md-sidenav 
+        md-component-id="left"
+        md-is-locked-open="$mdMedia('gt-sm')" 
+        class="md-whiteframe-4dp">
+        
+        <md-button class="md-accent md-raised" ng-click="al.accountCreation($event)" flex="100" flex-gt-md="auto">
+            Create account
+        </md-button>
+        <md-list ng-click="al.toggleList()">
             <md-list-item ng-repeat= "a in al.accounts">
                 <md-button ng-click="al.selectAccount(a)" ng-class="{'selected' : a === al.selected }">
                     {{a.companyName}}
-                </md-button>
+                </md-button> 
             </md-list-item>
-          </md-list>
-        </md-sidenav>
+        </md-list>
+    </md-sidenav>
 
-        <md-content flex id="content">
-          <!--<md-icon md-svg-icon="{{al.selected.avatar}}" class="avatar"></md-icon>-->
-          <h2>{{al.selected.companyName}}</h2>
-          <p>Address: {{al.selected.companyAddress}}</p>
-          <p>director: {{al.selected.director}}</p>
-         
-          <md-button class="share" md-no-ink ng-click="al.makeContact(al.selected)" aria-label="Share with {{ al.selected.companyName }}">
-            <!--<md-icon md-svg-icon="share"></md-icon>-->
+    <md-content flex id="content">
+        <!--<md-icon md-svg-icon="{{al.selected.avatar}}" class="avatar"></md-icon>-->
+        <h2>{{al.selected.companyName}}</h2>
+        <p>Address: {{al.selected.companyAddress}}</p>
+        <p>director: {{al.selected.director}}</p>
+        
+        <md-button  class="md-accent md-raised share" md-no-ink ng-click="al.makeContact(al.selected)" aria-label="Share with {{ al.selected.companyName }}">
+        <!--<md-icon md-svg-icon="share"></md-icon>-->
             contact
-          </md-button>
-        </md-content>
-    </div>
+        </md-button>
+        <md-button class="md-accent md-raised edit" ng-click="al.accountEdit(al.selected)" flex="100" flex-gt-md="auto">
+            Edit Account
+        </md-button>
+    </md-content>
+</div>

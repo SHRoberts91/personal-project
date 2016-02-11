@@ -1,4 +1,4 @@
-angular.module('iDocsApp').service('accountsService', function($http, $q, $mdSidenav, $mdBottomSheet){
+angular.module('iDocsApp').service('accountsService', function($http, $q, $mdSidenav, $mdBottomSheet, $mdDialog){
     //**Hide or Show left sideNav area
     this.toggleAccountsList = function() {
         $mdSidenav('left').toggle();
@@ -37,7 +37,60 @@ angular.module('iDocsApp').service('accountsService', function($http, $q, $mdSid
     </md-list>
     </md-bottom-sheet>`,
             // parent: "angular.element(document.getElementById('content'))"
-        });
+        });    
     };
+  
+    this.ShowAccountCreation = function(ev) {
+        // var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'))
+        $mdDialog.show({
+            controller: 'accountsCtrl',
+            controllerAs: 'al',
+            templateUrl: './../routes/accountCreationTmpl.html',
+            // parent: angular.element(document.body),
+            targetEvent: ev,
+            clickOutsideToClose:true,
+            // fullscreen: useFullScreen
+            openFrom: {
+               left: 1500,
+            },
+            // closeTo: {
+            //     left: '1500'
+            // }         
+        })
+        console.log('Account creation worked!');
+        // this.hide = function() {
+        //     $mdDialog.hide();
+        // };
+        // this.cancel = function() {
+        //     $mdDialog.cancel();
+        // };
+    };
+    
+    this.accountEdit = function(selectedAccount) {
+        // var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'))
+        $mdDialog.show({
+            controller: 'accountsCtrl',
+            controllerAs: 'al',
+            templateUrl: './../routes/accountEditTmpl.html',
+            // parent: angular.element(document.body),
+            targetEvent: selectedAccount,
+            clickOutsideToClose:true,
+            // fullscreen: useFullScreen
+            openFrom: {
+               left: 1500,
+            },
+            // closeTo: {
+            //     left: '1500'
+            // }         
+        })
+        console.log('Account edit worked!');
+        // this.hide = function() {
+        //     $mdDialog.hide();
+        // };
+        // this.cancel = function() {
+        //     $mdDialog.cancel();
+        // };
+    };
+
 });
 

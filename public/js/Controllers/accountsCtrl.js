@@ -1,7 +1,7 @@
 
 angular.module('iDocsApp')
 // .controller('iDocsCtrl', function($scope){
-.controller('accountsCtrl', function(accountsService){
+.controller('accountsCtrl', function(accountsService,$mdDialog){
     var self = this;
     console.log('controller hooked up!');    
     self.toggleList = accountsService.toggleAccountsList;
@@ -15,13 +15,34 @@ angular.module('iDocsApp')
         // self.accounts    = [].concat(response);
         self.accounts = response;
         self.selected = self.accounts[0];
-        console.log(response);
         console.log(self.accounts);
     })
     
      //** Show the bottom sheet
      
      self.makeContact = accountsService.makeContact;
+    
+    //* Show Account Creation Modal
+    
+    self.account = {
+        description: 'Nuclear Missile Defense System',
+        rate: 500
+    };
+    
+    self.accountCreation = accountsService.ShowAccountCreation;
+    self.accountEdit = accountsService.accountEdit;
+    
+    // self.hide = function() {
+    //     $mdDialog.hide();
+    // };
+    // self.cancel = function() {
+    //     $mdDialog.cancel();
+    // };
+    // self.answer = function(answer) {
+    //     $mdDialog.hide(answer);
+    // }; 
+    
+    
     
     
     //** Bottom Sheet controller for the Avatar Actions

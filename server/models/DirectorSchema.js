@@ -1,9 +1,11 @@
 var mongoose = require('mongoose'),
-    Schema = mongoose.Schema,
-    bcrypt = require('bcrypt-nodejs'),
-    objectId = mongoose.Schema.Types.ObjectId;
+    Schema = mongoose.Schema;
 
-var Director = new Schema({
-    name: {type: String, required: true, unique: true},
-    
-}),
+var DirectorSchema = new Schema({
+    name: {type: String},
+    title: {type: String},
+    email: {type: String}
+});
+
+
+module.exports = DirectorSchema; 

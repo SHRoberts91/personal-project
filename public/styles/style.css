@@ -156,16 +156,20 @@ md-sidenav  md-list {
 }
 
 #content .md-button.share {
-  background-color: transparent;
+  /*background-color: transparent;
   border: none;
   width: 48px;
   height: 48px;
-  margin: 8px auto 16px 0;
+  margin: 8px auto 16px 0;*/
   position: absolute;
   top: 10px;
   right: 25px;
 }
-
+#content .md-button.edit {
+    position: absolute;
+    top: 50px;
+    right: 25px;
+}
 /*
 *******
 */

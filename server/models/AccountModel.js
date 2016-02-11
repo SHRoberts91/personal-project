@@ -1,14 +1,25 @@
 var Mongoose = require('mongoose'),
-    schema = Mongoose.Schema,
+    Schema = Mongoose.Schema,
     // bcrypt = require('bcrypt-nodejs'),
-    objectId = Mongoose.Schema.Types.ObjectId;
-    // DirectorSchema = ('./DirectorSchema');
+    objectId = Mongoose.Schema.Types.ObjectId,
+    DirectorSchema = ('./DirectorSchema'),
+    AccountAdminSchema = ('./DirectorSchema');    
 
-var Account = new schema({
+var Account = new Schema({
     userId: {type: objectId, ref: 'User'},
     companyName: {type: String, required: true},
-    director: {type: String, required: true},
-    companyAddress: {type: String, required: true},    
+    companyType: {type: String, required: true},
+    stateOfFOrmation: {type: String, required: true},
+    addressLineOne: {type: String},
+    addressLineTwo: {type: String},
+    country: {type: String, required: true},
+    city: {type: String},
+    state: {type: String, required: true},
+    zipCode: {type: String},
+    accountAdmin: AccountAdminSchema,
+    directors: [{DirectorSchema}]
+    
+        
 })
 
 module.exports = Mongoose.model('Account', Account)

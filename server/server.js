@@ -9,7 +9,10 @@ var express = require('express'),
 //Models
 var User = require('./models/UserModel'),  
     Account = require('./models/AccountModel'),
-    Meeting = require('./models/MeetingModel');
+    Meeting = require('./models/MeetingModel'),
+    DirectorSchema = require('./models/DirectorSchema'),
+    AccountAdminSchema = require('./models/AccountAdminSchema');
+    
 //controllers    
 var userCtrl = require('./controllers/userCtrl'),  
     accountCtrl = require('./controllers/accountCtrl'),
@@ -84,7 +87,7 @@ app.put('/meeting/:id', meetingCtrl.update);
 app.delete('/meeting/:id', meetingCtrl.delete);
 
 
-var portNum = 8887;
+var portNum = 8891;
 app.listen(portNum, function(){
     console.log('listening on', portNum);
 })
