@@ -7,7 +7,7 @@ module.exports = {
                 console.log(err);
                 return res.status(500).send(err);
             }
-            console.log(result);
+            // console.log(result);
             return res.status(200).send(result);
         });
     },
@@ -16,18 +16,18 @@ module.exports = {
         .find(req.query)
         .exec(function(err,result) {
             if (err) {
-                return res.status(500).json(err);
+                return res.status(500).send(err);
             }
-            console.log(result)
-            res.json(result);
+            console.log("back end working",result)
+            res.send(result);
         });
     },
     update: function(req, res) {
         Account.findByIdAndUpdate(req.params.id, req.body, function(err, result) {
             if (err) {
-                return res.status(500).json(err);
+                return res.status(500).send(err);
             }
-            res.json(result);
+            res.send(result);
         })
     },
     delete: function(req, res) {

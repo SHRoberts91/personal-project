@@ -2,7 +2,7 @@
 angular.module('iDocsApp')
 // .controller('iDocsCtrl', function($scope){
 .controller('iDocsCtrl', function($mdBottomSheet, $mdSidenav, $scope){    
-    $scope.toggleList = toggleAccountsList;
+    // $scope.toggleList = toggleAccountsList;
     // $scope.selectAccount = selectAccount;
     // $scope.accounts = [ ];
     // $scope.selected = null;
@@ -18,9 +18,9 @@ angular.module('iDocsApp')
     //       });
     
     //**Hide or Show left sideNav area
-    function toggleAccountsList() {
-        $mdSidenav('left').toggle();
-    };
+    // function toggleAccountsList() {
+    //     $mdSidenav('left').toggle();
+    // };
     
     //**Select the current account
     

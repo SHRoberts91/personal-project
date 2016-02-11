@@ -17,13 +17,20 @@ app.config(function ($stateProvider, $urlRouterProvider, $mdThemingProvider) {
     })
     .state('accounts', {
       templateUrl: './routes/accountsTmpl.html',
-      controller: 'iDocsCtrl',
+      controller: 'accountsCtrl',
+      controllerAs: 'al',
       url: '/accounts'
     })
     .state('meetings', {
       templateUrl: './routes/meetingsTmpl.html',
       controller: 'iDocsCtrl',
       url: '/meetings'
+    })
+    .state('login', {
+        templateUrl: './routes/loginTmpl.html',
+        controller: 'loginCtrl',
+        controllerAs: 'login',
+        url: '/login'
     })
     .state('iDocs', {
       templateUrl: './routes/iDocsTmpl.html',

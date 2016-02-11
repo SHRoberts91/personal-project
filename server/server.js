@@ -18,26 +18,44 @@ var userCtrl = require('./controllers/userCtrl'),
    
    
 //end point protection
-var isAuthenticated = function (req, res, next) {
-	if (req.isAuthenticated()) {
-		next();
-	} else {
-		return res.status(403).send('Not logged in');
-	}
-};
+
+// var isAuthenticated = function (req, res, next) {
+// 	if (req.isAuthenticated()) {
+// 		next();
+// 	} else {
+// 		return res.status(403).send('Not logged in');
+// 	}
+// };
    
 var app = express();
 app.use(bodyParser.json());
-// app.use(express.static(__dirname + 'guestHome'));
-// app.use(bodyParser.urlencoded({extended: false}));
 app.use(cors());
-app.use(session({
-	secret: 'secretsecretsecretsecretsecret',
-	saveUninitialized: false,
-	resave: true
-}));
+// app.use(bodyParser.urlencoded({extended: false}));
+
+//local-host
+
+// app.use(session({
+// 	secret: 'secretsecretsecretsecretsecret',
+// 	saveUninitialized: false,
+// 	resave: true
+// }));
 // app.use(passport.initalize());  
 // app.use(passport.session());
+
+//for testing front end and back end
+
+app.use(express.static(__dirname + '/../public'));
+
+
+//connecting to db
+
+var mongoUri = 'mongodb://localhost:27017/attourneyHelper'
+mongoose.connect(mongoUri);
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error: '));
+db.once('open', function () {
+    console.log('Mongo connected at', mongoUri);
+})
 
 //endpoints
 
@@ -65,16 +83,6 @@ app.get('/meeting', meetingCtrl.read);
 app.put('/meeting/:id', meetingCtrl.update);
 app.delete('/meeting/:id', meetingCtrl.delete);
 
-
-//can now look at site from db
-var mongoUri = 'mongodb://localhost:27017/attourneyHelper'
-mongoose.connect(mongoUri);
-
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error: '));
-db.once('open', function () {
-    console.log('Mongo connected at', mongoUri);
-})
 
 var portNum = 8887;
 app.listen(portNum, function(){
