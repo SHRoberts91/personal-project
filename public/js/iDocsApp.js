@@ -1,8 +1,8 @@
-var app = angular.module('iDocsApp', ['ui.router', 'ngMaterial']);
+var app = angular.module('iDocsApp', ['ui.router', 'ngMaterial', 'textAngular']);
 app.config(function ($stateProvider, $urlRouterProvider, $mdThemingProvider) {
   $mdThemingProvider.theme('default')
-   .primaryPalette('brown')
-   .accentPalette('red');
+   .primaryPalette('purple')
+   .accentPalette('green');
   
   $stateProvider
   .state('guestHome', {
@@ -23,7 +23,8 @@ app.config(function ($stateProvider, $urlRouterProvider, $mdThemingProvider) {
     })
     .state('meetings', {
       templateUrl: './routes/meetingsTmpl.html',
-      controller: 'iDocsCtrl',
+      controller: 'meetingsCtrl',
+      controllerAs: 'mc',
       url: '/meetings'
     })
     .state('login', {
@@ -37,7 +38,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $mdThemingProvider) {
       controller: 'iDocsCtrl',
       url: '/iDocs'
     })
-    $urlRouterProvider.otherwise('/accounts');
+    $urlRouterProvider.otherwise('/meetings');
 });
 // angular.module('iDocsApp', ['ngMaterial', 'ui.router'])
 // .config(function( $mdThemingProvider, $mdIconProvider, $stateProvider, $urlRouterProvider ){

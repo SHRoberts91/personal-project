@@ -8,7 +8,7 @@ module.exports = {
                 return res.status(500).send(err);
             }
             // console.log(result);
-            return res.status(200).send(result);
+            return res.status(200).send(result,"successfully created account!");
         });
     },
     read: function(req, res) {

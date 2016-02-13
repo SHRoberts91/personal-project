@@ -49,6 +49,7 @@ angular.module('iDocsApp').service('accountsService', function($http, $q, $mdSid
             // parent: angular.element(document.body),
             targetEvent: ev,
             clickOutsideToClose:true,
+            disableParentScroll: false,
             // fullscreen: useFullScreen
             openFrom: {
                left: 1500,
@@ -64,6 +65,10 @@ angular.module('iDocsApp').service('accountsService', function($http, $q, $mdSid
         // this.cancel = function() {
         //     $mdDialog.cancel();
         // };
+    };
+    
+    this.cancel = function() {
+        $mdDialog.cancel();
     };
     
     this.accountEdit = function(selectedAccount) {

@@ -1,9 +1,8 @@
-
 angular.module('iDocsApp')
 // .controller('iDocsCtrl', function($scope){
 .controller('accountsCtrl', function(accountsService,$mdDialog){
     var self = this;
-    console.log('controller hooked up!');    
+    
     self.toggleList = accountsService.toggleAccountsList;
     self.selectAccount = accountsService.selectAccount;
     self.accounts = [ ];
@@ -20,16 +19,11 @@ angular.module('iDocsApp')
     
      //** Show the bottom sheet
      
-     self.makeContact = accountsService.makeContact;
+    self.makeContact = accountsService.makeContact;
     
-    //* Show Account Creation Modal
-    
-    self.account = {
-        description: 'Nuclear Missile Defense System',
-        rate: 500
-    };
-    
+    //* Show Account Creation Modal    
     self.accountCreation = accountsService.ShowAccountCreation;
+    self.cancel= accountsService.cancel;
     self.accountEdit = accountsService.accountEdit;
     
     // self.hide = function() {

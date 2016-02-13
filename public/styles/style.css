@@ -170,6 +170,10 @@ md-sidenav  md-list {
     top: 50px;
     right: 25px;
 }
+#popupContainer {
+    height: 90vh;
+    width: 600px;
+}
 /*
 *******
 */
