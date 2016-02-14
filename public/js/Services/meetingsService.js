@@ -1,30 +1,30 @@
 angular.module('iDocsApp').service('meetingsService', function($http){
-    this.loadAllGeneralForms = function(){
-        return $http.get('/forms/general')
+    this.loadAllGeneraliDocs = function(){
+        return $http.get('/iDocs/general')
         .then(function(response){
             return response.data;
         }).catch(function(err){
             console.log('not working', err);
         })
     };
-    this.createGeneralForm=function(){
-        return $http.post('forms/general')
+    this.createGeneraliDoc=function(){
+        return $http.post('iDocs/general')
+        .then(function(response){
+            return response.data;
+        }).catch(function(err){
+            console.log('not working', err);
+        })
+    }
+    this.updateGeneraliDoc=function(id){
+        return $http.put('iDocs/general')
         .then(function(response){
             return response.data;
         }).catch(function(err){
             console.log('not working', err);
         })
     };
-    this.updateGeneralForm=function(id){
-        return $http.put('forms/general')
-        .then(function(response){
-            return response.data;
-        }).catch(function(err){
-            console.log('not working', err);
-        })
-    };
-    this.deleteGeneralForm=function(id){
-        return $http.delete('forms/general')
+    this.deleteGeneraliDoc=function(id){
+        return $http.delete('iDocs/general')
         .then(function(response){
             return response.data;
         }).catch(function(err){

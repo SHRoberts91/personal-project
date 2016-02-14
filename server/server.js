@@ -16,7 +16,7 @@ var User = require('./models/UserModel'),
 //controllers    
 var userCtrl = require('./controllers/userCtrl'),  
     accountCtrl = require('./controllers/accountCtrl'),
-    formCtrl = require('./controllers/formCtrl'),
+    iDocCtrl = require('./controllers/iDocCtrl'),
     meetingCtrl = require('./controllers/meetingCtrl');
 
 
@@ -84,14 +84,14 @@ app.get('/accounts', accountCtrl.read);
 app.put('/accounts/:id', accountCtrl.update);
 app.delete('/accounts/:id', accountCtrl.delete);
 
-app.post('/forms/general', formCtrl.create)
-app.get('/forms/general', formCtrl.read);
-app.put('/forms/general/:id', formCtrl.update);
-app.delete('/forms/general/:id', formCtrl.delete);
-app.post('/forms/modified', formCtrl.createModified)
-app.get('/forms/modified', formCtrl.readModified);
-app.put('/forms/modified/:id', formCtrl.updateModified);
-app.delete('/forms/modified/:id', formCtrl.deleteModified);
+app.post('/iDocs/general', iDocCtrl.create)
+app.get('/iDocs/general', iDocCtrl.read);
+app.put('/iDocs/general/:id', iDocCtrl.update);
+app.delete('/iDocs/general/:id', iDocCtrl.delete);
+app.post('/iDocs/modified', iDocCtrl.createModified)
+app.get('/iDocs/modified', iDocCtrl.readModified);
+app.put('/iDocs/modified/:id', iDocCtrl.updateModified);
+app.delete('/iDocs/modified/:id', iDocCtrl.deleteModified);
 
 
 app.post('/meeting', meetingCtrl.create);

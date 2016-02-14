@@ -211,3 +211,8 @@ Meeting Page
 textarea.ta-bind {
 	width: 100%;
 }
+
+.validation-messages {
+    font-size: 11px;
+    color: darkred;
+    margin: 10px 0 0 25px; }
