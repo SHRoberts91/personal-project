@@ -16,7 +16,9 @@ var User = require('./models/UserModel'),
 //controllers    
 var userCtrl = require('./controllers/userCtrl'),  
     accountCtrl = require('./controllers/accountCtrl'),
+    formCtrl = require('./controllers/formCtrl'),
     meetingCtrl = require('./controllers/meetingCtrl');
+
 
    
    
@@ -67,6 +69,7 @@ app.get('/user', userCtrl.read);
 app.get('/me', userCtrl.me);
 app.get('/user/read/:id', userCtrl.readUser);
 app.put('/user/:id', userCtrl.update);
+
 // app.post('/login', function(req, res, next){
 //     //login
 // })
@@ -76,10 +79,20 @@ app.put('/user/:id', userCtrl.update);
 // })
 // app.get('/login', userCtrl.read);
 
-app.post('/account', accountCtrl.create);
-app.get('/account', accountCtrl.read);
-app.put('/account/:id', accountCtrl.update);
-app.delete('/account/:id', accountCtrl.delete);
+app.post('/accounts', accountCtrl.create);
+app.get('/accounts', accountCtrl.read);
+app.put('/accounts/:id', accountCtrl.update);
+app.delete('/accounts/:id', accountCtrl.delete);
+
+app.post('/forms/general', formCtrl.create)
+app.get('/forms/general', formCtrl.read);
+app.put('/forms/general/:id', formCtrl.update);
+app.delete('/forms/general/:id', formCtrl.delete);
+app.post('/forms/modified', formCtrl.createModified)
+app.get('/forms/modified', formCtrl.readModified);
+app.put('/forms/modified/:id', formCtrl.updateModified);
+app.delete('/forms/modified/:id', formCtrl.deleteModified);
+
 
 app.post('/meeting', meetingCtrl.create);
 app.get('/meeting', meetingCtrl.read);

@@ -1,1 +1,33 @@
-<div text-angular ng-model="mc.htmlContent" name="meeting minutes editor" ta-text-editor-class="border-around" ta-html-editor-class="border-around"></div
+<div layout="column" style="height:50vh" ng-cloak>
+<md-toolbar md-scroll-shrink ng-if="true" layout="row" class="md-toolbar-tools">    
+    <!--<md-button class="menu" hide-gt-sm ng-click="al.toggleList()" aria-label="Show Account List">
+        <md-icon md-svg-icon="menu" ></md-icon>
+        list
+    </md-button>      -->
+    <h3>Meeting</h3>
+</md-toolbar>
+<md-content flex>
+    <md-list>
+        <md-list ng-repeat>
+            
+        </md-list>    
+    </md-list>    
+</md-content>
+
+<!--<div class="container app">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/textAngular/1.5.0/textAngular.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <div text-angular ng-model="mc.htmlContent" name="meeting minutes editor" ta-unsafe-sanitizer="true" ta-disabled="false"></div>
+
+    <h3>Raw HTML in a text area</h3>
+    <textarea ng-model="mc.htmlContent" style="width: 100%"></textarea>
+    <h3>Bound with ta-bind</h3>
+    <div ta-bind="text" ng-model="mc.htmlContent" ta-readonly='disabled'></div>
+    <button type="button" ng-click="mc.htmlContent = mc.origContent">Reset</button>
+  
+</div>  -->
+    
+    
+

@@ -12,7 +12,7 @@ angular.module('iDocsApp').service('accountsService', function($http, $q, $mdSid
     this.loadAllAccounts = function() {
         return $http({
             method: 'GET',
-            url: '/account',  
+            url: '/accounts',  
         }).then(function(response){
             // console.log(response.data);
             return response.data;  

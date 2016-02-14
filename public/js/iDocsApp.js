@@ -18,7 +18,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $mdThemingProvider) {
     .state('accounts', {
       templateUrl: './routes/accountsTmpl.html',
       controller: 'accountsCtrl',
-      controllerAs: 'al',
+    //   controllerAs: 'al',
       url: '/accounts'
     })
     .state('meetings', {

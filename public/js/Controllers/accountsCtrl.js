@@ -9,13 +9,13 @@ angular.module('iDocsApp')
     self.selected = null;
     
     self.loadAllAccounts = accountsService.loadAllAccounts;
-    self.loadAllAccounts()
-    .then(function(response){
-        // self.accounts    = [].concat(response);
-        self.accounts = response;
-        self.selected = self.accounts[0];
-        console.log(self.accounts);
-    })
+    // self.loadAllAccounts()
+    // .then(function(response){
+    //     // self.accounts    = [].concat(response);
+    //     self.accounts = response;
+    //     self.selected = self.accounts[0];
+    //     console.log(self.accounts);
+    // })
     
      //** Show the bottom sheet
      
