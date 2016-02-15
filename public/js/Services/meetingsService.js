@@ -1,15 +1,22 @@
 angular.module('iDocsApp').service('meetingsService', function($http){
+    
+    //**HTTP CALLS
     this.loadAllGeneraliDocs = function(){
         return $http.get('/iDocs/general')
         .then(function(response){
+            console.log(response.data);
             return response.data;
         }).catch(function(err){
             console.log('not working', err);
         })
     };
-    this.createGeneraliDoc=function(){
-        return $http.post('iDocs/general')
+    this.createGeneraliDoc=function(iDocName, iDoc){
+        return $http.post('iDocs/general', {
+        name: iDocName,
+        iDoc: iDoc
+        })
         .then(function(response){
+            console.log('SENT!', response.data);
             return response.data;
         }).catch(function(err){
             console.log('not working', err);
@@ -31,6 +38,13 @@ angular.module('iDocsApp').service('meetingsService', function($http){
             console.log('not working', err);
         })
     };
+
+//Meeting
+    this.updateiDocs = function(docToUpdate, secToBeReplaced, secReplacing){
+        var regex = new RegExp(secToBeReplaced, 'g');
+        // console.log(docToUpdate[0].iDoc.replace(regex, secToUpdate));
+        return docToUpdate[0].iDoc.replace(regex, secReplacing);
+    }
 
 
 });

@@ -1,4 +1,4 @@
-var app = angular.module('iDocsApp', ['ui.router', 'ngMaterial', 'textAngular']);
+var app = angular.module('iDocsApp', ['ui.router', 'ngMaterial', 'textAngular', 'ngAnimate']);
 app.config(function ($stateProvider, $urlRouterProvider, $mdThemingProvider) {
   $mdThemingProvider.theme('default')
    .primaryPalette('purple')
@@ -18,7 +18,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $mdThemingProvider) {
     .state('accounts', {
       templateUrl: './routes/accountsTmpl.html',
       controller: 'accountsCtrl',
-    //   controllerAs: 'al',
+      controllerAs: 'al',
       url: '/accounts'
     })
     .state('meetings', {

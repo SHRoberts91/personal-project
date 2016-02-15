@@ -1,14 +1,6 @@
-angular.module('iDocsApp').service('accountsService', function($http, $q, $mdSidenav, $mdBottomSheet, $mdDialog){
-    //**Hide or Show left sideNav area
-    this.toggleAccountsList = function() {
-        $mdSidenav('left').toggle();
-        console.log('list toggled');
-    };
+angular.module('iDocsApp').service('accountsService', function($http, $mdSidenav, $mdBottomSheet, $mdDialog){
     
-    this.selectAccount = function ( account ) {
-       this.selected =  account;     
-    };
-    
+    //HTTP Calls
     this.loadAllAccounts = function() {
         return $http({
             method: 'GET',
@@ -20,6 +12,28 @@ angular.module('iDocsApp').service('accountsService', function($http, $q, $mdSid
             console.log('not working', err);
         })
     };
+    
+    this.createAccount = function() {
+        return $http.post('/accounts')
+        .then(function(response){
+            console.log(response.data);
+            return response.data
+        }).catch(function(err){
+            console.log('not working', err);
+        });
+    }
+    
+    
+    //**Hide or Show left sideNav area
+    this.toggleAccountsList = function() {
+        $mdSidenav('left').toggle();
+        console.log('list toggled');
+    };
+    
+    this.selectAccount = function ( account ) {
+       this.selected =  account;     
+    };
+    
     this.makeContact = function(selectedAccount) {
         $mdBottomSheet.show({
             controller: 'accountsCtrl',
@@ -49,11 +63,11 @@ angular.module('iDocsApp').service('accountsService', function($http, $q, $mdSid
             // parent: angular.element(document.body),
             targetEvent: ev,
             clickOutsideToClose:true,
-            disableParentScroll: false,
-            // fullscreen: useFullScreen
-            openFrom: {
-               left: 1500,
-            },
+            // disableParentScroll: false,
+            // fullscreen: useFullScreen,
+            // openFrom: {
+            //    left: 1500,
+            // },
             // closeTo: {
             //     left: '1500'
             // }         
@@ -78,8 +92,8 @@ angular.module('iDocsApp').service('accountsService', function($http, $q, $mdSid
             controllerAs: 'al',
             templateUrl: './../routes/accountEditTmpl.html',
             // parent: angular.element(document.body),
-            targetEvent: selectedAccount,
-            clickOutsideToClose:true,
+            // targetEvent: selectedAccount,
+            clickOutsideToClose: true,
             // fullscreen: useFullScreen
             openFrom: {
                left: 1500,

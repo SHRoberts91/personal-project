@@ -54,7 +54,7 @@ app.use(express.static(__dirname + '/../public'));
 
 //connecting to db
 
-var mongoUri = 'mongodb://localhost:27017/attourneyHelper'
+var mongoUri = 'mongodb://localhost:27017/iLawyer'
 mongoose.connect(mongoUri);
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error: '));

@@ -2,29 +2,51 @@ angular.module('iDocsApp')
 // .controller('iDocsCtrl', function($scope){
 .controller('accountsCtrl', function(accountsService,$mdDialog){
     var self = this;
-    
-    self.toggleList = accountsService.toggleAccountsList;
-    self.selectAccount = accountsService.selectAccount;
     self.accounts = [ ];
     self.selected = null;
+    self.newAccount = [ ];
+    self.states = ('AL AK AZ AR CA CO CT DE FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN MS ' +
+    'MO MT NE NV NH NJ NM NY NC ND OH OK OR PA RI SC SD TN TX UT VT VA WA WV WI ' +
+    'WY').split(' ').map(function(state) {
+        return {abbrev: state};
+    });
+    self.numberOfDirectorsList= [0, 1, 2, 3, 4, 5]
+    self.directorsNum= [ ];
+    //HTTP CALL
     
     self.loadAllAccounts = accountsService.loadAllAccounts;
-    // self.loadAllAccounts()
-    // .then(function(response){
-    //     // self.accounts    = [].concat(response);
-    //     self.accounts = response;
-    //     self.selected = self.accounts[0];
-    //     console.log(self.accounts);
-    // })
+    self.loadAllAccounts()
+    .then(function(response){
+        // self.accounts    = [].concat(response);
+        self.accounts = response;
+        self.selected = self.accounts[0];
+        console.log(self.accounts);
+    });
+
+    self.createAccount = accountsService.createAccount;
+
+    //sideNav    
+    self.toggleList = accountsService.toggleAccountsList;
+    self.selectAccount = accountsService.selectAccount;
     
-     //** Show the bottom sheet
-     
-    self.makeContact = accountsService.makeContact;
     
-    //* Show Account Creation Modal    
+    //* Account Creation Modal    
+    
+    //director(s)
+    self.loadDirectors = function(num){
+        if(num === 0)return console.log("hit 0 directors");
+        self.directorsNum[1].push({name:"",title:""})
+        self.selected.unshift(num)
+        console.log(self.questionData[1])
+        console.log(self.selected)
+        self.loadDirectors(num-1);
+    }
+    
+    
     self.accountCreation = accountsService.ShowAccountCreation;
     self.cancel= accountsService.cancel;
     self.accountEdit = accountsService.accountEdit;
+    
     
     // self.hide = function() {
     //     $mdDialog.hide();
@@ -36,6 +58,9 @@ angular.module('iDocsApp')
     //     $mdDialog.hide(answer);
     // }; 
     
+     //** Show the bottom sheet
+     
+    self.makeContact = accountsService.makeContact;
     
     
     

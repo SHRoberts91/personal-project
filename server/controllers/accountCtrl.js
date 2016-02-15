@@ -18,7 +18,7 @@ module.exports = {
             if (err) {
                 return res.status(500).send(err);
             }
-            console.log("back end working",result)
+            // console.log("back end working",result)
             res.send(result);
         });
     },
