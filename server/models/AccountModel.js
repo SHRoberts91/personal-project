@@ -12,7 +12,6 @@ var Account = new Schema({
     stateOfFormation: {type: String, required: true},
     addressLineOne: {type: String},
     addressLineTwo: {type: String},
-    country: {type: String, required: true},
     city: {type: String},
     state: {type: String, required: true},
     zipCode: {type: String},

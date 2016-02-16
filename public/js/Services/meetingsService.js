@@ -1,4 +1,4 @@
-angular.module('iDocsApp').service('meetingsService', function($http){
+angular.module('iDocsApp').service('meetingsService', function($http, $mdDialog){
     
     //**HTTP CALLS
     this.loadAllGeneraliDocs = function(){
@@ -16,6 +16,16 @@ angular.module('iDocsApp').service('meetingsService', function($http){
         iDoc: iDoc
         })
         .then(function(response){
+            $mdDialog.show(
+            $mdDialog.alert()
+            // .parent(angular.element(document.querySelector('#popupContainer')))
+            .clickOutsideToClose(true)
+            .title('iDoc submitted!')
+            .textContent("we will create a custom questionnaire for your iDoc within 24 hours and alert you when it's ready. Because we care about your happiness.")
+            .ariaLabel('iDoc Creation Alert')
+            .ok('okay')
+            .targetEvent(ev)
+            )
             console.log('SENT!', response.data);
             return response.data;
         }).catch(function(err){

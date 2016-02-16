@@ -9,6 +9,7 @@ angular.module('iDocsApp')
     self.iDocsToUpdate = [ ]; 
     self.selected = [ ];
     self.accounts = [ ];
+    self.accountNumPicked = 0;
     self.extraAttendeesSelect = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     
     //AngularText    
@@ -40,6 +41,10 @@ angular.module('iDocsApp')
     
     //questionnaire
     
+    //Which account
+    self.loadAccount = function(account){
+        self.accountNumPicked = self.accounts.indexOf(account)
+    }
     //**directors in attendance
     self.toggle = function (director, list) {
         console.log(list);

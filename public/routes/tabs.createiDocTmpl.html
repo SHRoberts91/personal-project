@@ -1,0 +1,39 @@
+<div class="container md-whiteframe-8dp" layout="column" layout-align="center center">
+    <md-toolbar id="toolBar" layout="row" layout-align="center center" class="md-toolbar-tools">    
+        <h3>iDoc Creation</h3>
+    </md-toolbar>
+</div>
+<div class="container md-whiteframe-8dp iDocCreateBody" layout="column" layout-align="center center">
+    <md-content layout="column" layout-align="center center">
+    <form name="iDocCreationForm">
+        <section class = "md-whiteframe-8dp">
+            <md-subheader class="md-accent">
+                <h3>1.Get iDoc File</h3>
+            </md-subheader>
+            <h4>Copy and paste the file you want to transform</h4>
+            <div text-angular ng-model="idc.htmlContentSecond" name="iDocs Creator" ta-unsafe-sanitizer="true" ta-disabled="false"></div>
+        </section>
+        <section class = "md-whiteframe-8dp">
+            <md-subheader class="md-accent">
+                <h3>2.Review iDoc</h3>
+            </md-subheader>
+            <h4>Look over the iDoc and make sure this is what you want to submit.</h4>
+            <h3>Bound with ta-bind</h3>
+    <div ta-bind="text" ng-model="idc.htmlContentSecond" ta-readonly='disabled'></div>
+    <!--<textarea ta-bind="text" ng-model="idc.htmlContentSecond" style="width: 100%"></textarea>-->
+        </section>
+        <section>
+        <section class = "md-whiteframe-8dp">
+            <md-subheader class="md-accent">
+                <h3>3.Submit File</h3>
+            </md-subheader>
+            <h4>Submit file!</h4>
+            <md-button class="md-accent md-raised" ng-click="idc.pushGeneraliDoc('testing',idc.htmlContentSecond)"   flex="100"  flex-gt-md="auto">
+                SUBMIT
+            </md-button>
+        </section>
+                
+    </form>
+    
+    </md-content>
+</div>

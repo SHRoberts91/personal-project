@@ -13,8 +13,9 @@ angular.module('iDocsApp').service('accountsService', function($http, $mdSidenav
         })
     };
     
-    this.createAccount = function() {
-        return $http.post('/accounts')
+    this.createAccount = function(newAccount) {
+        console.log(newAccount);
+        return $http.post('/accounts', newAccount)
         .then(function(response){
             console.log(response.data);
             return response.data

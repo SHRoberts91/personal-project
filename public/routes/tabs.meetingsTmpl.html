@@ -1,0 +1,159 @@
+
+<div class="container md-whiteframe-8dp" layout="column" layout-align="center center">
+    
+    <md-toolbar id="toolBar" layout="row" layout-align="center center" class="md-toolbar-tools">    
+        <h3>iDocs Questionnaire</h3>
+    </md-toolbar>
+ </div>
+<div class="container md-whiteframe-8dp" layout="column" layout-align="center center"> 
+    <md-content layout="column" layout-align="center center">
+    
+        <form name="questionnaireForm">
+
+            <!--<section>
+                <md-subheader class="md-accent">
+                    Account
+                </md-subheader>
+                <md-select placeholder="What Directors will be in attendance?" ng-model="mc.accounts[5]" md-on-open="loadAllAccounts()" style="min-width: 200px;">
+                    <md-option ng-value="director" ng-repeat="director in mc.accounts[5].directors">{{director.name}}</md-option>
+                </md-select>
+            </section>-->
+            <section class ="md-whiteframe-8dp">
+                <md-subheader class="md-accent">
+                    <h4>Which Account</h4>
+                </md-subheader>
+                <h4>What account do you want this iDoc applied to?</h4>
+                    <md-select placeholder="What account?" ng-model="account" md-on-close="mc.loadAccount(account)">
+                        <md-option ng-value="account" ng-repeat="account in mc.accounts">
+                            {{account.companyName}}
+                        </md-option>
+                    </md-select>
+            </section>
+            
+            <section class ="md-whiteframe-8dp">
+                <md-subheader class="md-accent">
+                    <h4>Directors in Attendance</h4>
+                </md-subheader>
+                <fieldset class="standard">
+                    <legend><h4>What Directors are attending?</h4></legend>
+                    <div ng-repeat="director in mc.accounts[mc.accountNumPicked].directors">
+                        <md-checkbox ng-checked="mc.exists(director, mc.questionData[0])" ng-click="mc.toggle(director, mc.questionData[0])">
+                            {{director.name}} <span ng-if="!mc.exists(director, mc.questionData[0])"> is not attending</span> <span ng-if="mc.exists(director, mc.questionData[0])"> is attending</span>
+                        </md-checkbox>
+                    </div>
+                </fieldset>
+            </section>
+           
+            <section>
+                <md-subheader class="md-accent">
+                    <h4>Other Participants</h4>
+                </md-subheader>
+                <h4>How many other Participants?</h4>
+                <md-select placeholder="How many more will be attending?" ng-model="number" md-on-close="mc.loadAttendees(number)">
+                    <md-option ng-value="number" ng-repeat="number in mc.extraAttendeesSelect">
+                        {{number}} participants
+                    </md-option>
+                </md-select>
+                    
+                <div ng-repeat="num in mc.selected">
+                    <fieldset class="standard">
+                        <legend><h4>participant info {{num}}</h4></legend>
+                        <md-input-container class="md-block">
+                            <label>Name</label>
+                            <input required name="name" ng-model="mc.questionData[1].name">
+                            <div ng-messages="questionnaireForm.name.$error">
+                                <div ng-message="required">*required.</div>
+                            </div>
+                        </md-input-container>                        
+                    
+                        <md-input-container class="md-block">
+                            <label>Title</label>
+                            <input required name="title" ng-model="mc.questionData[1].title">
+                            <div ng-messages="questionnaireForm.title.$error">
+                                <div ng-message="required">*required.</div>
+                            </div>
+                        </md-input-container>
+                    </fieldset>
+                </div>
+            </section>            
+            
+            <section>
+                    <md-subheader class="md-accent">
+                    <h4>Last Meeting's Date</h4>
+                    </md-subheader>
+                    <h4>When was your last meeting?</h4>
+                    <md-datepicker name="dateForm" ng-model="mc.myDate" md-placeholder="Enter date"
+                    md-min-date="mc.minDate" md-max-date="mc.maxDate" ng-require="true" ng-change="mc.loadPreviousDate(mc.myDate)"></md-datepicker>
+                    <div class="validation-messages" ng-messages="questionnaireForm.dateForm.$error">
+                        <div ng-message="required">*required</div>
+                    </div>
+            </section>
+           
+            <!--<section>
+                <md-subheader class="md-accent">
+                    <h4>Acting Secretary</h4>
+                </md-subheader>
+                
+                <md-list>
+                    
+                </md-list>
+            </section>-->
+            
+            <section>
+                <md-subheader class="md-accent">
+                    <h4>Pre-built iDocs</h4>
+                </md-subheader>
+                <h4>What iDocs do you want to use?</h4>
+                <md-select placeholder="General iDocs" ng-model="iDoc" md-on-close="mc.useiDoc(iDoc)">
+                    <md-option ng-value="iDoc" ng-repeat="iDoc in mc.generaliDocs">
+                        {{iDoc.name}} iDoc
+                    </md-option>
+                </md-select>
+                <fieldset class="standard">
+                    <legend><h4>iDocs you want to use</h4></legend>
+                    <div ng-repeat="iDoc in mc.iDocsToUpdate">
+                        <md-checkbox ng-checked="mc.exists(iDoc, mc.iDocsToUpdate)" ng-click="mc.toggle(iDoc, mc.iDocsToUpdate)">
+                            {{iDoc.name}}  <span ng-if="mc.exists(iDoc, mc.iDocsToUpdate)"> will be initialized</span>
+                        </md-checkbox>
+                    </div>      
+                </fieldset>
+            </section>
+            <section>
+                <md-button class="md-raised md-accent" ng-click="mc.startMeeting()" flex=100>Start Meeting</md-button>
+                <md-button class="md-raised md-accent" ng-click="mc.htmlContent = mc.origContent">Reset</md-button>
+                <md-button class="md-raised md-accent" ng-click="mc.pushUpdatediDoc($event)">push Updated iDoc</md-button>
+            </section>
+        </form>
+            
+    </md-content>
+
+</div>
+    
+<!--angularText-->
+
+<div class="container app">
+    
+
+    <div text-angular ng-model="mc.htmlContent" name="meeting minutes editor" ta-unsafe-sanitizer="true" ta-disabled="false"></div>
+
+    <h3>Raw HTML in a text area</h3>
+    <textarea ng-model="mc.htmlContent" style="width: 100%"></textarea>
+    <!--<h3>Bound with ta-bind</h3>
+    <div ta-bind="text" ng-model="mc.htmlContent" ta-readonly='disabled'></div>
+    <textarea ta-bind="text" ng-model="mc.htmlContent" style="width: 100%"></textarea>
+    -->
+    
+    <!--<h3>Bound with ng-bind-html</h3>
+    <div ng-bind-html="mc.htmlContent"></div>
+    <textarea ng-bind-html="mc.htmlContent" style="width: 100%"></textarea>-->
+    
+    
+    <!--<md-input-container class="md-block">
+        <label>Name</label>
+        <input require name="iDocName" ng-model="mc.newGeneraliDocName">
+        <div ng-messages="questionnaireForm.iDocName.$error">
+            <div ng-message="required">*required.</div>
+        </div>
+        <button type="button" ng-click="mc.pushGeneraliDoc(mc.newGeneraliDocName, mc.htmlContent)">push General iDoc</button>
+    </md-input-container>
+</div>  -->

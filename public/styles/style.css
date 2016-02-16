@@ -1,111 +1,21 @@
-/*html, body {
-  font-family: 'Roboto', sans-serif;
-  font-size:14px;
-  height:100%;
-  margin: 0px;
-  padding: 0px;
-}
-
-.menu {
-  background-color: transparent;
-  border: none;
-  height: 38px;
-  margin: 16px;
-  width: 36px;
-}
-
-
-md-toolbar {
- height:70px;
-}
-
-md-toolbar h3 {
-  margin: auto;
-  font-weight: 500;
-}
-
-md-list-item > button {
-  width:100%;
-  text-align:left !important;
-}
-
-#content  {
-  padding-left: 40px;
-  padding-right: 40px;
-  padding-top: 5px;
-  overflow: hidden;
-}
-
-#content .md-button.share {
-  background-color: transparent;
-  border: none;
-  width: 48px;
-  height: 48px;
-  margin: 8px auto 16px 0;
-  position: absolute;
-  top: 10px;
-  right: 25px;
-}
-
-#content md-icon.avatar {
-  margin-top: 10px;
-}
-
-#content .md-button.share > md-icon {
-  fill:black;
-  width:36px;
-  height:36px;
-}
-
-#content .md-button.share:active > md-icon {
-  background-color: #dadada;
-  border-radius: 75%;
-  padding:4px;
-  transition: all 100ms ease-out 30ms;
-}
-
-#content img {
-  display: block;
-  height: auto;
-  max-width: 500px;
-}
-
-.content-wrapper {
-  position: relative;
-}
-
-.avatar {
-  position: relative;
-  width: 128px;
-  height: 128px;
-  border: 1px solid #ddd;
-  border-radius: 50%;
-  display: inline-block;
-  overflow: hidden;
-  margin: 0px;
-  vertical-align: middle;
-  zoom:0.70;
-  transform: translateZ(0);
-  -webkit-transform: scale(0.70);
-  -moz-transform:scale(0.70);
-}*/
-
-
-
-
-
 /*
 *******
 */
 html, body {
   font-family: 'Roboto', sans-serif;
-  font-size:14px;
-  height:100%;
+  font-size:16px;
+  /*height:100%;*/
   margin: 0px;
   padding: 0px;
 }
 
+.menuIcon{
+    color: #D50000;
+}
 
+.material-icons:hover{
+    color: #E040FB;
+}
 /*
 account page styling
 ********************
@@ -114,6 +24,69 @@ account page styling
 
 /*Toolbar area */
 
+.loginInfo{
+    color: black;
+     /*background-color: transparent;*/
+  /*border: none;*/
+  /*width: 150px;*/
+  /*height: 48px;*/
+  /*margin: 8px auto 16px 0;*/
+  padding-top: 35px;
+  /*position: absolute;
+  top: 10px;
+  left: 25px;*/
+  z-index: 1500;
+  font-size: 12px;
+  font-weight: 800;
+  text-align: center;
+}
+
+#topToolBar{
+    background-color: white;
+    text-shadow: 5em;
+    text-align: center;
+    /*font-weight: bolder;*/
+    padding: 10 0 0 0;
+}
+ #topToolBar h1{    
+    color: black;
+    opacity: .98; 
+    letter-spacing: .9em;
+ }
+#maini{
+    color: #D50000;
+    font-weight: bolder;
+    font-family: 'Roboto', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+/*md-toolbar h1 {
+    margin: auto;
+    font-weight: 900;
+    letter-spacing: .8em;
+    font-size: 24px;
+    text-align: center;
+    
+}*/
+
+md-toolbar h3 {
+    margin: auto;
+  }
+  
+.md-tab {
+    font-size: 18px;
+}
+
+#toolBar{
+    background-color: white;
+    text-shadow: 5em;
+    color: black;
+    opacity: .98; 
+    letter-spacing: .1em;
+    padding: 10 0 0 0;
+    text-align: center;
+
+    /*font-weight: bolder;*/
+}
+
 .menu {
   background-color: transparent;
   border: none;
@@ -122,37 +95,30 @@ account page styling
   width: 36px;
 }
 
-md-toolbar {
- height:70px;
-}
-
-md-toolbar h3 {
-  margin: auto;
-  font-weight: 500;
-}
-
 /*Sidenav area*/
 
-md-list-item > button {
-  width:100%;
-  text-align:left !important;
+.sideHeader{
+    margin-left: 10px;
 }
+
 
 md-list .md-button.selected {
     color: #03a9f4;
 }
 
-md-sidenav  md-list {
-    padding: 0px 0px 8px 0px;
-}
 
 /*primary content*/
 
-#content  {
+/*#content  {
     overflow: hidden;
     padding-left: 40px;
     padding-right: 40px;
     padding-top: 5px;
+}*/
+
+#content {
+    text-align: center;
+    
 }
 
 #content .md-button.share {
@@ -167,7 +133,7 @@ md-sidenav  md-list {
 }
 #content .md-button.edit {
     position: absolute;
-    top: 50px;
+    top: 55px;
     right: 25px;
 }
 #popupContainer {
@@ -216,3 +182,8 @@ textarea.ta-bind {
     font-size: 11px;
     color: darkred;
     margin: 10px 0 0 25px; }
+    
+/*Idoc Create*/
+.iDocCreateBody{
+    text-align: center;
+}
