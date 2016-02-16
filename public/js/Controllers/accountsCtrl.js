@@ -4,14 +4,16 @@ angular.module('iDocsApp')
     var self = this;
     self.accounts = [ ];
     self.selected = null;
-    self.newAccount = [ ];
+    self.newAccount = {};
+    self.newAccount.directors = []
     self.states = ('AL AK AZ AR CA CO CT DE FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN MS ' +
     'MO MT NE NV NH NJ NM NY NC ND OH OK OR PA RI SC SD TN TX UT VT VA WA WV WI ' +
     'WY').split(' ').map(function(state) {
         return {abbrev: state};
     });
-    self.numberOfDirectorsList= [0, 1, 2, 3, 4, 5]
-    self.directorsNum= [ ];
+    self.numOfDirectors= [0, 1, 2, 3, 4, 5]
+    // self.directorsNum= [[] ];
+    self.selectedDirectorAmount = [ ];
     //HTTP CALL
     
     self.loadAllAccounts = accountsService.loadAllAccounts;
@@ -20,7 +22,7 @@ angular.module('iDocsApp')
         // self.accounts    = [].concat(response);
         self.accounts = response;
         self.selected = self.accounts[0];
-        console.log(self.accounts);
+        // console.log(self.accounts);
     });
 
     self.createAccount = accountsService.createAccount;
@@ -31,19 +33,36 @@ angular.module('iDocsApp')
     
     
     //* Account Creation Modal    
+    self.accountCreation = accountsService.ShowAccountCreation;
+    
+    //state of formation
+    self.pushStateOfFormation = function(state){
+        self.newAccount.stateOfFormation = state;
+        console.log(self.newAccount)
+    }
+    
+    //state
+    self.pushState = function(state){
+        self.newAccount.state = state;
+        console.log(self.newAccount);
+        
+    }
     
     //director(s)
     self.loadDirectors = function(num){
         if(num === 0)return console.log("hit 0 directors");
-        self.directorsNum[1].push({name:"",title:""})
-        self.selected.unshift(num)
-        console.log(self.questionData[1])
-        console.log(self.selected)
+        console.log(self.newAccount)
+        self.newAccount.directors.push({name:"",title:""})
+        console.log(self.directors);
+        self.selectedDirectorAmount.unshift(num);
         self.loadDirectors(num-1);
     }
     
+    //create account
+    self.createAccount = accountsService.createAccount;
     
-    self.accountCreation = accountsService.ShowAccountCreation;
+    //random functions
+    
     self.cancel= accountsService.cancel;
     self.accountEdit = accountsService.accountEdit;
     
