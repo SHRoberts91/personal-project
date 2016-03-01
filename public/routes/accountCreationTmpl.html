@@ -13,15 +13,15 @@
             <section>
                 <md-subheader class="md-primary">
                     <h4>Company Info</h4>
-                </md-subheader>    
+                </md-subheader>
                 <md-input-container class="md-block">
                     <label>Company Name</label>
                     <input required name="companyName" ng-model="al.newAccount.companyName">
                     <div ng-messages="accountCreationForm.companyName.$error">
-                    <div ng-message="required">*required</div>
+                        <div ng-message="required">*required</div>
                     </div>
                 </md-input-container>
-            
+
                 <md-input-container class="md-block">
                     <label>Company Type</label>
                     <input required name="Company Type" ng-model="al.newAccount.companyType">
@@ -31,10 +31,10 @@
                     </div>
                 </md-input-container>
             </section>
-            
+
             <section>
                 <md-subheader class="md-primary">
-                    <h4>State of Formation</h4>    
+                    <h4>State of Formation</h4>
                 </md-subheader>
                 <md-input-container class="md-block">
                     <label>State of Formation</label>
@@ -50,26 +50,26 @@
                     </div>
                 </md-input-container>
             </section>
-            
+
             <section>
                 <md-subheader class="md-primary">
-                    <h4>Company Address</h4>    
+                    <h4>Company Address</h4>
                 </md-subheader>
                 <md-input-container class="md-block">
                     <label>Address Line One</label>
                     <input name="Address Line One" ng-model="al.newAccount.addressLineOne">
                 </md-input-container>
-            
+
                 <md-input-container class="md-block">
                     <label>Address Line Two</label>
                     <input name="Address Line Two" ng-model="al.newAccount.addressLineTwo">
                 </md-input-container>
-                
+
                 <md-input-container class="md-block">
                     <label>City</label>
                     <input name="Country" ng-model="al.newAccount.city">
                 </md-input-container>
-                
+
                 <md-input-container class="md-block">
                     <label>State</label>
                     <md-select ng-value="state" ng-model="state" md-on-close="al.pushState(state)">
@@ -81,46 +81,46 @@
                         <div ng-message="required">*required</div>
                     </div>
                 </md-input-container>
-            </section>        
             </section>
-            
+            </section>
+
             <section>
                 <md-subheader class="md-primary">
-                    <h4>Administrator info</h4>    
-                </md-subheader>           
+                    <h4>Administrator info</h4>
+                </md-subheader>
                 <md-input-container class="md-block">
                     <label>Account Administrator Name</label>
                     <input required name="Account Administrator Name" ng-model="al.newAccount.accountAdminName">
                     <div ng-messages="accountCreationForm.accountAdminName.$error">
                         <div ng-message="required">*required</div>
                     </div>
-                </md-input-container>                        
-                
+                </md-input-container>
+
                 <md-input-container class="md-block">
                     <label>Account Administrator Title</label>
                     <input required name="Account Administrator Title" ng-model="al.newAccount.accountAdminTitle">
                     <div ng-messages="accountCreationForm.accountAdminTitle.$error">
                         <div ng-message="required">*required</div>
                     </div>
-                </md-input-container>                                
-                
-                
+                </md-input-container>
+
+
                 <md-input-container class="md-block">
                     <label>Account Administrator Email</label>
-                    <input required type="email" name="Account Administrator Email" ng-model="al.newAccount.accountAdminEmail"
-                        minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" />
+                    <input required type="email" name="Account Administrator Email" ng-model="al.newAccount.accountAdminEmail" minlength="10"
+                    maxlength="100" ng-pattern="/^.+@.+\..+$/" />
                     <div ng-messages="accountCreationForm.accountAdminEmail.$error" role="alert">
                         <div ng-message="required">*required</div>
-                    </div>    
-                        <!--<div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                    </div>
+                    <!--<div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
                             Your email must be between 10 and 100 characters long and look like an e-mail address.
                         </div>-->
                 </md-input-container>
             </section>
-            
+
             <section>
                 <md-subheader class="md-primary">
-                    <h4>Director(s) info</h4>    
+                    <h4>Director(s) info</h4>
                 </md-subheader>
                 <h4>How many Directors?</h4>
                 <md-select placeholder="Amount of Directors" ng-model="number" md-on-close="al.loadDirectors(number)">
@@ -128,18 +128,19 @@
                         {{number}} Director(s)
                     </md-option>
                 </md-select>
-                    
+
                 <div ng-repeat="num in al.selectedDirectorAmount">
                     <fieldset class="standard">
-                        <legend><h4>Director #{{num}} info</h4></legend>
+                        <legend>
+                            <h4>Director #{{num}} info</h4></legend>
                         <md-input-container class="md-block">
                             <label>Name</label>
                             <input required name="name" ng-model="al.newAccount.directors[num-1].name">
                             <div ng-messages="questionnaireForm.name.$error">
                                 <div ng-message="required">*required</div>
                             </div>
-                        </md-input-container>                        
-                    
+                        </md-input-container>
+
                         <md-input-container class="md-block">
                             <label>Title</label>
                             <input required name="title" ng-model="al.newAccount.directors[num-1].title">

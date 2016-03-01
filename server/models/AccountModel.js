@@ -3,24 +3,24 @@ var Mongoose = require('mongoose'),
     // bcrypt = require('bcrypt-nodejs'),
     objectId = Mongoose.Schema.Types.ObjectId,
     DirectorSchema = ('./DirectorSchema');
-    // AccountAdminSchema = ('./AccountAdminSchema');    
+// AccountAdminSchema = ('./AccountAdminSchema');    
 
 var Account = new Schema({
-    userId: {type: objectId, ref: 'User'},
-    companyName: {type: String, required: true},
-    companyType: {type: String, required: true},
-    stateOfFormation: {type: String, required: true},
-    addressLineOne: {type: String},
-    addressLineTwo: {type: String},
-    city: {type: String},
-    state: {type: String, required: true},
-    zipCode: {type: String},
-    accountAdminName: {type: String, required: true},
-    accountAdminTitle: {type: String, required: true},
-    accountAdminEmail: {type: String, required: true},
+    userId: { type: objectId, ref: 'User' },
+    companyName: { type: String, required: true },
+    companyType: { type: String, required: true },
+    stateOfFormation: { type: String, required: true },
+    addressLineOne: { type: String },
+    addressLineTwo: { type: String },
+    city: { type: String },
+    state: { type: String, required: true },
+    zipCode: { type: String },
+    accountAdminName: { type: String, required: true },
+    accountAdminTitle: { type: String, required: true },
+    accountAdminEmail: { type: String, required: true },
     directors: [DirectorSchema]
-    
-        
+
+
 })
 
 module.exports = Mongoose.model('Account', Account)

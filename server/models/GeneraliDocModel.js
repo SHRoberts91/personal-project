@@ -3,8 +3,8 @@ var Mongoose = require('mongoose'),
     objectId = Mongoose.Schema.Types.ObjectId;
 
 var GeneraliDoc = new Schema({
-    name: {type: String, required: true},
-    iDoc: {type: String, required: true}    
+    name: { type: String, required: true },
+    iDoc: { type: String, required: true }
 })
 
 module.exports = Mongoose.model('GeneraliDoc', GeneraliDoc)

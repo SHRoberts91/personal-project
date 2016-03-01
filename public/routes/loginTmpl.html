@@ -1,4 +1,3 @@
-
 <!--<form ng-submit="authenticate(User)">
     <input type="Username" placeholder="Username"
         name="Username" ng-model="User.name" focus/>
@@ -9,33 +8,33 @@
     <button class="l-btn-main">Sign Up / Login</button>
 </form>-->
 <div ng-if="auth.isLoggedIn()" class="auth">
-	<div>
-	<p>My Orders:</p>
-	<div ng-repeat="order in auth.orders">
-		<a ui-sref="main.orders({id: order._id})">{{order._id}} {{order.date | date}}</a>
-	</div>
-		
-	</div>
-	<button ng-click="auth.logout()">Logout</button>
+    <div>
+        <p>My Orders:</p>
+        <div ng-repeat="order in auth.orders">
+            <a ui-sref="main.orders({id: order._id})">{{order._id}} {{order.date | date}}</a>
+        </div>
+
+    </div>
+    <button ng-click="auth.logout()">Logout</button>
 </div>
 <div ng-if="!auth.isLoggedIn()">
-	<h3 ng-if="auth.message">{{auth.message}}</h3>
-	<div ng-if="auth.showRegister" class="auth">
-		<div>
-			<h2>REGISTER</h2>
-			<input type="text" placeholder="username" ng-model="auth.user.username">
-			<input type="password" placeholder="password" ng-model="auth.user.password">
-			<button ng-click="auth.register()">Register</button>
-			<span ng-click="auth.toggleRegister()">Already a customer? Login here!</span>
-		</div>
-	</div>
-	<div ng-if="!auth.showRegister" class="auth">
-		<div>
-			<h2>Login</h2>
-			<input type="text" placeholder="username" ng-model="auth.user.username">
-			<input type="password" placeholder="password" ng-model="auth.user.password">
-			<button ng-click="auth.login()">Login</button>
-			<span ng-click="auth.toggleRegister()">Register!</span>
-		</div>
-	</div>
+    <h3 ng-if="auth.message">{{auth.message}}</h3>
+    <div ng-if="auth.showRegister" class="auth">
+        <div>
+            <h2>REGISTER</h2>
+            <input type="text" placeholder="username" ng-model="auth.user.username">
+            <input type="password" placeholder="password" ng-model="auth.user.password">
+            <button ng-click="auth.register()">Register</button>
+            <span ng-click="auth.toggleRegister()">Already a customer? Login here!</span>
+        </div>
+    </div>
+    <div ng-if="!auth.showRegister" class="auth">
+        <div>
+            <h2>Login</h2>
+            <input type="text" placeholder="username" ng-model="auth.user.username">
+            <input type="password" placeholder="password" ng-model="auth.user.password">
+            <button ng-click="auth.login()">Login</button>
+            <span ng-click="auth.toggleRegister()">Register!</span>
+        </div>
+    </div>
 </div>

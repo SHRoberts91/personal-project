@@ -2,9 +2,9 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 var DirectorSchema = new Schema({
-    name: {type: String},
-    title: {type: String},
-    email: {type: String}
+    name: { type: String },
+    title: { type: String },
+    email: { type: String }
 });
 
 

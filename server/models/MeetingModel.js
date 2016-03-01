@@ -5,5 +5,5 @@ var Mongoose = require('mongoose'),
     DirectorSchema = ('./DirectorSchema');
 
 var Meeting = new Schema({
-    
+
 })

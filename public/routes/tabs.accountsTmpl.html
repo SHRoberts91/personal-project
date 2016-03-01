@@ -1,45 +1,42 @@
 <div class="container md-whiteframe-8dp" layout="row" flex>
-<md-toolbar id="toolBar" layout="row" layout-align="space-inbetween center">    
-    <div flex=5>
-        <md-button="md-icon-button" class="menu" ng-click="al.toggleList()" aria-label="Show Account List">
-            <md-tooltip md-direction="top">
-                Account List
-            </md-tooltip>
-            <i class="material-icons menuIcon" id="menuIcon">menu</i>
-        </md-button>
-    </div>
-    <div class="centerWord" flex=90>
-        <h3>Accounts</h3>
-    </div>
-    <div flex=5>
-        <md-button="md-icon-button" class="menu" ng-click="al.toggleList()" aria-label="Show Account List">
-            <!--<md-tooltip md-direction="left">
+    <md-toolbar id="toolBar" layout="row" layout-align="space-inbetween center">
+        <div flex=5>
+            <md-button="md-icon-button" class="menu" ng-click="al.toggleList()" aria-label="Show Account List">
+                <md-tooltip md-direction="top">
+                    Account List
+                </md-tooltip>
+                <i class="material-icons menuIcon" id="menuIcon">menu</i>
+                </md-button>
+        </div>
+        <div class="centerWord" flex=90>
+            <h3>Accounts</h3>
+        </div>
+        <div flex=5>
+            <md-button="md-icon-button" class="menu" ng-click="al.toggleList()" aria-label="Show Account List">
+                <!--<md-tooltip md-direction="left">
                 Account List
             </md-tooltip>-->
-            <!--<i class="material-icons md-accent" id="menuIcon">menu</i>-->
-        </md-button>
-    </div>      
-</md-toolbar>
+                <!--<i class="material-icons md-accent" id="menuIcon">menu</i>-->
+                </md-button>
+        </div>
+    </md-toolbar>
 </div>
 <div class="container md-whiteframe-8dp" layout="row" flex>
-    <md-sidenav 
-        md-component-id="left"
-        md-is-locked-open="false"
-        class="md-whiteframe-4dp">
-            <div class="sideHeader">
-                <span style="color: red; font-size: 18px">Your Accounts</span>
-                <md-button class="md-icon-button md-raised md-primary" ng-click="al.accountCreation($event)">
-                    <md-tooltip md-direction="right">
-                        Create new
-                    </md-tooltip>
-                    <i class="material-icons">create</i>
-                 </md-button>
-            </div>
+    <md-sidenav md-component-id="left" md-is-locked-open="false" class="md-whiteframe-4dp">
+        <div class="sideHeader">
+            <span style="color: red; font-size: 18px">Your Accounts</span>
+            <md-button class="md-icon-button md-raised md-primary" ng-click="al.accountCreation($event)">
+                <md-tooltip md-direction="right">
+                    Create new
+                </md-tooltip>
+                <i class="material-icons">create</i>
+            </md-button>
+        </div>
         <md-list ng-click="al.toggleList()">
-            <md-list-item ng-repeat= "a in al.accounts">
+            <md-list-item ng-repeat="a in al.accounts">
                 <md-button ng-click="al.selectAccount(a)" ng-class="{'selected' : a === al.selected }">
                     {{a.companyName}}
-                </md-button> 
+                </md-button>
             </md-list-item>
         </md-list>
     </md-sidenav>
@@ -47,33 +44,36 @@
     <md-content flex="noShrink" id="content">
         <!--<md-icon md-svg-icon="{{al.selected.avatar}}" class="avatar"></md-icon>-->
         <h2 class="md-display-1">{{al.selected.companyName}}</h2>
-        <p><h5 class="md-title">Company Type:</h5> {{al.selected.companyType}}</p>
-        <p><h3>State Of Formation:</h3> {{al.selected.stateOfFormation}}
-        <p><h3>Address:</h3></p>
-        <p>  {{al.selected.addressLineOne}}</p>
-        <p>  {{al.selected.addressLineTwo}}</p>
-        <p>  {{al.selected.city}}, {{al.selected.state}}</p>
-        <p>AdminInfo:</p>  
-        <p>   Name:{{al.selected.accountAdminName}}</p>
-        <p>   Title:{{al.selected.accountAdminTitle}}</p>
-        <p>   Email:{{al.selected.accountAdminEmail}}</p>
-        <p>Directors:</p>
-        <div ng-repeat="director in al.selected.directors">
-            <p>  Name:{{director.name}}</p>
-            <p>  Title: {{director.name}}</p>
-        </div>
-        <md-button class="md-icon-button md-raised md-primary edit" ng-click="al.accountEdit(al.selected)">
-                    <md-tooltip md-direction="left">
-                        contact by mail
-                    </md-tooltip>
-            <i class="material-icons">contact_mail</i>
-        </md-button>
-        
-        <md-button  class="md-icon-button md-raised md-primary share"  ng-click="al.makeContact(al.selected)" aria-label="Share with {{ al.selected.companyName }}">
-            <i class="material-icons">edit</i>
-            <md-tooltip md-direction="left">
-                contact by mail
-            </md-tooltip>
-        </md-button>
+        <p>
+            <h5 class="md-title">Company Type:</h5> {{al.selected.companyType}}</p>
+        <p>
+            <h3>State Of Formation:</h3> {{al.selected.stateOfFormation}}
+            <p>
+                <h3>Address:</h3></p>
+            <p> {{al.selected.addressLineOne}}</p>
+            <p> {{al.selected.addressLineTwo}}</p>
+            <p> {{al.selected.city}}, {{al.selected.state}}</p>
+            <p>AdminInfo:</p>
+            <p> Name:{{al.selected.accountAdminName}}</p>
+            <p> Title:{{al.selected.accountAdminTitle}}</p>
+            <p> Email:{{al.selected.accountAdminEmail}}</p>
+            <p>Directors:</p>
+            <div ng-repeat="director in al.selected.directors">
+                <p> Name:{{director.name}}</p>
+                <p> Title: {{director.name}}</p>
+            </div>
+            <md-button class="md-icon-button md-raised md-primary edit" ng-click="al.accountEdit(al.selected)">
+                <md-tooltip md-direction="left">
+                    contact by mail
+                </md-tooltip>
+                <i class="material-icons">contact_mail</i>
+            </md-button>
+
+            <md-button class="md-icon-button md-raised md-primary share" ng-click="al.makeContact(al.selected)" aria-label="Share with {{ al.selected.companyName }}">
+                <i class="material-icons">edit</i>
+                <md-tooltip md-direction="left">
+                    contact by mail
+                </md-tooltip>
+            </md-button>
     </md-content>
 </div>
