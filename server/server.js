@@ -1,20 +1,20 @@
 var express = require('express'),
-   bodyParser = require('body-parser'),
-   session = require('express-session'),
-   cors = require('cors'),
-   mongoose = require('mongoose'),
-   GoogleStrategy = require('passport-google').Strategy,
-   FacebookStrategy = require('passport-facebook').Strategy;
+    bodyParser = require('body-parser'),
+    session = require('express-session'),
+    cors = require('cors'),
+    mongoose = require('mongoose'),
+    GoogleStrategy = require('passport-google').Strategy,
+    FacebookStrategy = require('passport-facebook').Strategy;
 
 //Models
-var User = require('./models/UserModel'),  
+var User = require('./models/UserModel'),
     Account = require('./models/AccountModel'),
     Meeting = require('./models/MeetingModel'),
     DirectorSchema = require('./models/DirectorSchema'),
     AccountAdminSchema = require('./models/AccountAdminSchema');
     
 //controllers    
-var userCtrl = require('./controllers/userCtrl'),  
+var userCtrl = require('./controllers/userCtrl'),
     accountCtrl = require('./controllers/accountCtrl'),
     iDocCtrl = require('./controllers/iDocCtrl'),
     meetingCtrl = require('./controllers/meetingCtrl');
@@ -101,6 +101,6 @@ app.delete('/meeting/:id', meetingCtrl.delete);
 
 
 var portNum = 8891;
-app.listen(portNum, function(){
+app.listen(portNum, function () {
     console.log('listening on', portNum);
 })

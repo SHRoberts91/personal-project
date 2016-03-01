@@ -17,8 +17,8 @@
             </md-input-container>
             <md-input-container class="md-block">
                 <label>Client Email</label>
-                <input required type="email" name="clientEmail" ng-model="al.project.clientEmail"
-                    minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" />
+                <input required type="email" name="clientEmail" ng-model="al.project.clientEmail" minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/"
+                />
                 <div ng-messages="accountEditForm.clientEmail.$error" role="alert">
                     <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
                         Your email must be between 10 and 100 characters long and look like an e-mail address.
@@ -27,8 +27,8 @@
             </md-input-container>
             <md-input-container class="md-block">
                 <label>Hourly Rate (USD)</label>
-                <input required type="number" step="any" name="rate" ng-model="al.project.rate" min="800"
-                    max="4999" ng-pattern="/^1234$/" />
+                <input required type="number" step="any" name="rate" ng-model="al.project.rate" min="800" max="4999" ng-pattern="/^1234$/"
+                />
                 <!--<div ng-messages="accountEditForm.rate.$error" multiple md-auto-hide="false">
                 <div ng-message="required">
                     You've got to charge something! You can't just <b>give away</b> a Missile Defense
