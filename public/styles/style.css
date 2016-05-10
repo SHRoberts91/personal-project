@@ -75,6 +75,15 @@ md-toolbar h3 {
     font-size: 18px;
 }
 
+/*
+@media (max-width: 765px) {
+
+    #tool-bar-container{
+        margin-left: 0;
+        margin-right: 0;
+    
+    }
+}*/
 #toolBar{
     background-color: white;
     text-shadow: 5em;
@@ -106,6 +115,10 @@ md-list .md-button.selected {
     color: #03a9f4;
 }
 
+.min-width-set{
+    min-width: 395px;
+}
+
 
 /*primary content*/
 
@@ -135,6 +148,18 @@ md-list .md-button.selected {
     position: absolute;
     top: 55px;
     right: 25px;
+}
+@media (max-width: 760px) {
+    #content .md-button.edit {
+        position: absolute;
+        top: 110px;
+        right: 25px;
+    }
+    #content .md-button.share {
+        position: absolute;
+        top: 65px;
+        right: 25px;
+    }    
 }
 #popupContainer {
     height: 90vh;

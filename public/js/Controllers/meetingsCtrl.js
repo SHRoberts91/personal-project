@@ -2,7 +2,7 @@ angular.module('iDocsApp')
 .controller('meetingsCtrl', function(meetingsService, accountsService){
     var self = this;
     self.questionData = [[], []]; //[0]-directors 
-                               //[1]-other attende
+                               //[1]-other attendees
                                //[2]-date of previous meeting
                                //[3]-date of this meeting
     self.generaliDocs = [ ];
@@ -13,7 +13,7 @@ angular.module('iDocsApp')
     self.extraAttendeesSelect = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     
     //AngularText    
-    self.origContent = "testing text box";
+    // self.origContent = "testing text box";
     self.htmlContent = self.origContent;
     
     

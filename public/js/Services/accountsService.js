@@ -63,15 +63,15 @@ angular.module('iDocsApp').service('accountsService', function($http, $mdSidenav
             templateUrl: './../routes/accountCreationTmpl.html',
             // parent: angular.element(document.body),
             targetEvent: ev,
-            clickOutsideToClose:true,
+            // clickOutsideToClose:true,
             // disableParentScroll: false,
             // fullscreen: useFullScreen,
             // openFrom: {
             //    left: 1500,
             // },
-            // closeTo: {
-            //     left: '1500'
-            // }         
+            closeTo: {
+                left: '1500'
+            }         
         })
         console.log('Account creation worked!');
         // this.hide = function() {

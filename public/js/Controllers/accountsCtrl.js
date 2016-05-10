@@ -14,7 +14,7 @@ angular.module('iDocsApp')
         self.numOfDirectors = [0, 1, 2, 3, 4, 5]
         // self.directorsNum= [[] ];
         self.selectedDirectorAmount = [];
-        //HTTP CALL
+        //HTTP 
     
         self.loadAllAccounts = accountsService.loadAllAccounts;
         self.loadAllAccounts()

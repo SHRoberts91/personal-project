@@ -5,7 +5,7 @@ angular.module('iDocsApp')
     var self = this;
     self.htmlContentSecond;
         self.pushGeneraliDoc = meetingsService.createGeneraliDoc;
-        
+            
 
 });
 
