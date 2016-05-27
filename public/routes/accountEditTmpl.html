@@ -3,17 +3,26 @@
         <form name="accountEditForm">
             <h2>{{al.selected.companyName}}:</h2>
             <md-input-container class="md-block">
-                <label>Organization Name</label>
-                <input md-maxlength="50" required name="Organization Name" ng-model="al.selected.companyName">
+                <label>Company Name</label>
+                <input md-maxlength="50" required name="Company Name" ng-model="al.selected.companyName">
                 <!--<div ng-messages="accountEditForm.description.$error">
                 <div ng-message="required">This is required.</div>
                 <div ng-message="md-maxlength">The name has to be less than 30 characters long.</div>
                 </div>-->
             </md-input-container>
             <md-input-container class="md-block">
+                <label>Company Type</label>
+                <input md-maxlength="50" required name="Company Type" ng-model="al.selected.companyType">
+               
+            </md-input-container><md-input-container class="md-block">
+                <label>State of Formation</label>
+                <input md-maxlength="50" required name="State of Formation" ng-model="al.selected.StateofFormation">
+              
+            </md-input-container>
+            <md-input-container class="md-block">
                 <label>Client Name</label>
                 <input required name="clientName" ng-model="al.project.clientName">
-                <div class="hint">Tell us what we should call you!</div>
+                <!--<div class="hint">Tell us what we should call you!</div>-->
             </md-input-container>
             <md-input-container class="md-block">
                 <label>Client Email</label>
